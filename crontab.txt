@@ -1,2 +1,2 @@
 59 23 * * 1-5 $HOME/activeGitHub/wakatime/init.sh >/dev/null 2>&1
-/1 * * * * $HOME/activeGitHub/openweather/init.sh >/dev/null 2>&1
+00 */1 * * * $HOME/activeGitHub/openweather/init.sh >/dev/null 2>&1

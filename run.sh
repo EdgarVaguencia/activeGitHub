@@ -2,8 +2,8 @@
 This_path="$HOME/activeGitHub"
 WakatimePath="$This_path/wakatime/init.sh"
 WakatimePathScript="$This_path/wakatime/script.py"
-OpenWeatherPath="$This_path/wakatime/init.sh"
-OpenWeatherPathScript="$This_path/wakatime/script.py"
+OpenWeatherPath="$This_path/openweather/init.sh"
+OpenWeatherPathScript="$This_path/openweather/script.py"
 
 # cambiando permisos
 chmod +x $WakatimePath
