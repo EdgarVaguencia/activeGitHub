@@ -36,7 +36,7 @@ def current(path):
         else:
             sb = open(file, 'a')
 
-        sb.write('1. A las {hour}:{minute} !["icon weather"](http://openweathermap.org/img/w/{icon}.png) tenemos una temperatura de {temp} °C con {desc} y  vientos de {wind} y nubosidad al {clound}%\n'.format(
+        sb.write('1. A las {hour}:{minute} !["icon weather"](http://openweathermap.org/img/w/{icon}.png) tenemos una temperatura de {temp} C con {desc} y  vientos de {wind} y nubosidad al {clound}%\n'.format(
                 hour=str(datetime.now().hour),
                 minute=str(datetime.now().minute),
                 icon=weather_icon,
