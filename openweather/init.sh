@@ -18,6 +18,6 @@ fi
 python script.py --path "$Year/$Month"
 
 # Git
-git add "$year/$Month"
+git add "$Year/$Month"
 git commit -m "Actualizando el clima :partly_sunny:"
 git push origin master
