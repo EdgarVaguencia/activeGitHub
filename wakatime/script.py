@@ -37,6 +37,11 @@ def summaries(path):
       for s in json_data["data"][0]["operating_systems"]:
         log_file += '1. {sistema} con {tiempo} ({porcentaje}%)\n'.format(sistema=s["name"], tiempo=s["text"], porcentaje=s["percent"])
 
+    if len(json_data["data"][0]["editors"]) > 0:
+      log_file += '\n## IDEs\n'
+      for e in json_data["data"][0]["editors"]:
+        log_file += '1. {editor} un total de {tiempo} ({porciento}%)\n'.format(editor=e["name"], tiempo=e["digital"], porciento=e["percent"])
+
     sb = open(file, 'w')
     sb.write(log_file)
   except Exception, e:
