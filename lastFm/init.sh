@@ -13,6 +13,6 @@ fi
 python script.py --path "$Year"
 
 # Git
-git add "$Year/$Month"
+git add "$Year"
 git commit -m "Recomendación musical :headphones:"
 git push origin master
