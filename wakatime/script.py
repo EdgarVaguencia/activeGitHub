@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from datetime import datetime
 import os
 import requests
@@ -23,24 +24,24 @@ def summaries(path):
     log_file = u'# Codeando el {day}/{month}/{year}\n\n## Tiempo total\n{tiempo}.\n'.format(day=day, month=month, year=year, tiempo=time_text)
 
     if len(json_data["data"][0]["languages"]) > 0:
-      log_file += '\n## Lenguajes usados\n'
+      log_file += u'\n## Lenguajes usados\n'
       for l in json_data["data"][0]["languages"]:
-        log_file += '1. {language} con {tiempo} ({porcentaje}%)\n'.format(language=l["name"], tiempo=l["text"], porcentaje=l["percent"])
+        log_file += u'1. {language} con {tiempo} ({porcentaje}%)\n'.format(language=l["name"], tiempo=l["text"], porcentaje=l["percent"]).encode('ascii', 'ignore').decode('ascii')
 
     if len(json_data["data"][0]["projects"]) > 0:
-      log_file += '\n## Proyectos actualizados\n'
+      log_file += u'\n## Proyectos actualizados\n'
       for p in json_data["data"][0]["projects"]:
-        log_file += '1. {proyecto} con {tiempo} ({porcentaje}%)\n'.format(proyecto=p["name"], tiempo=p["text"], porcentaje=p["percent"])
+        log_file += u'1. {proyecto} con {tiempo} ({porcentaje}%)\n'.format(proyecto=p["name"], tiempo=p["text"], porcentaje=p["percent"]).encode('ascii', 'ignore').decode('ascii')
 
     if len(json_data["data"][0]["operating_systems"]) > 0:
-      log_file += '\n## Plataformas utilizadas\n'
+      log_file += u'\n## Plataformas utilizadas\n'
       for s in json_data["data"][0]["operating_systems"]:
-        log_file += '1. {sistema} con {tiempo} ({porcentaje}%)\n'.format(sistema=s["name"], tiempo=s["text"], porcentaje=s["percent"])
+        log_file += u'1. {sistema} con {tiempo} ({porcentaje}%)\n'.format(sistema=s["name"], tiempo=s["text"], porcentaje=s["percent"]).encode('ascii', 'ignore').decode('ascii')
 
     if len(json_data["data"][0]["editors"]) > 0:
-      log_file += '\n## IDEs\n'
+      log_file += u'\n## IDEs\n'
       for e in json_data["data"][0]["editors"]:
-        log_file += '1. {editor} un total de {tiempo} ({porciento}%)\n'.format(editor=e["name"], tiempo=e["digital"], porciento=e["percent"])
+        log_file += u'1. {editor} un total de {tiempo} ({porciento}%)\n'.format(editor=e["name"], tiempo=e["digital"], porciento=e["percent"]).encode('ascii', 'ignore').decode('ascii')
 
     sb = open(file, 'w')
     sb.write(log_file)
