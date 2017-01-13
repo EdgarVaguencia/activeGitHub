@@ -2,3 +2,4 @@
 00 */2 * * * $HOME/activeGitHub/openweather/init.sh >/dev/null 2>&1
 00 7 * * 7 $HOME/activeGitHub/lastFm/init.sh >/dev/null 2>&1
 00 5 * * * $HOME/activeGitHub/gasolinazo/init.sh >/dev/null 2>&1
+02 */2 * * * $HOME/shellVarios.sh >/dev/null 2>&1
