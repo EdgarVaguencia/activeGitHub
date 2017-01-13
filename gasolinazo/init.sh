@@ -1,4 +1,4 @@
-This_path="$HOME/Documents/Other/activeGitHub"
+This_path="$HOME/activeGitHub"
 Current_path="$This_path/gasolinazo"
 Year=`date +"%Y"`
 Month=`date +"%m"`
