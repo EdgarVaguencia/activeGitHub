@@ -6,8 +6,8 @@ import json
 import argparse
 
 year = str(datetime.now().year)
-month = str(datetime.now().month)
-day = str(datetime.now().day)
+month = datetime.now().strftime('%m')
+day = datetime.now().strftime('%d')
 apiKey = "14c4dc54-572f-4e6b-9b85-b0d9aa06be7d"
 wakaApi = "https://wakatime.com/api/v1/users/current/summaries?api_key={api}&start={year}-{month}-{day}&end={year}-{month}-{day}".format(year=year, month=month, day=day, api=apiKey)
 

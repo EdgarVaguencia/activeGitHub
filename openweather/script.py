@@ -5,8 +5,8 @@ import json
 import argparse
 
 year = str(datetime.now().year)
-month = str(datetime.now().month)
-day = str(datetime.now().day)
+month = datetime.now().strftime('%m')
+day = datetime.now().strftime('%d')
 apikey = "a5492fc4c67ed8e56a84296fa3456ad9"
 units = "metric"
 lang = "es"
