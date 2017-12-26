@@ -10,7 +10,7 @@ day = datetime.now().strftime('%d')
 apikey = "a5492fc4c67ed8e56a84296fa3456ad9"
 units = "metric"
 lang = "es"
-ciudad = "celaya"
+ciudad = "Celaya,mx"
 weatherApi = "http://api.openweathermap.org/data/2.5/weather?q={ciudad}&units={units}&lang={lang}&APPID={api}".format(ciudad=ciudad, units=units, lang=lang, api=apikey)
 
 def current(path):
