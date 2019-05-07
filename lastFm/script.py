@@ -52,9 +52,9 @@ def topTen(path):
             log_file += u'1. {}{}\n'.format(al['name'], artista)
 
         sb = open(file, 'w')
-        sb.write(log_file.encode('utf-8'))
+        sb.write(log_file)
     except Exception as e:
-        print "Error: ",e
+        print("Error: ",e)
 
 parser = argparse.ArgumentParser(description='Obtenemos el top ten de la music escuchada.')
 parser.add_argument('-p', '--path', action='store', default=False, help='Directorio donde almacena el log del top ten music')

@@ -47,7 +47,7 @@ def current(path):
             ))
         sb.close()
     except Exception as e:
-        print "Error: ",e
+        print("Error: ",e)
 
 parser = argparse.ArgumentParser(description='Obtenemos el estado actual de una ciudad (celaya) .')
 parser.add_argument('-p', '--path', action='store', default=False, help='Carpeta donde almacena el log del dia')
