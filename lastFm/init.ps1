@@ -8,4 +8,9 @@ if (!(Test-Path -Path $Year)) {
     New-Item -Path $Year -ItemType Directory
 }
 
+# Api
 python script.py --path "$Year"
+
+# Git
+git add "$Year"
+git commit -m "Recomendación musical :headphones:"

@@ -13,4 +13,9 @@ if (!(Test-Path -Path "${Year}\\${Month}")) {
   New-Item -Path "$Year\$Month" -ItemType Directory
 }
 
+# Api
 python script.py --path "$Year/$Month"
+
+# Git
+git add "$Year/$Month"
+git commit -m "Actualizando el clima :partly_sunny:"
