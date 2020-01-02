@@ -5,7 +5,7 @@ import json
 import argparse
 
 year = str(datetime.now().year)
-week = str(datetime.now().isocalendar()[1])
+week = str(datetime.now().sfrtime('%V'))
 apikey = "ebb288a9fba45278c0b326b7766f8911"
 user = "edgarkmarita"
 method = {
