@@ -7,13 +7,21 @@ access_token = ''
 urlBase = 'https://api.tvtime.com/v1/{method}?access_token={token}'
 path = ''
 
+def getToken():
+    token = access_token
+    if token == '':
+        f = open('../access.json', 'r')
+        data = json.loads(f.read())
+        if 'tvTime' in data:
+            token = data['tvTime']
+    return token
+
 def formatName(name):
     nameFormat = name
     character = ['*', ':', '?', '/', '<', '>', '|']
     for c in character:
         nameFormat = nameFormat.replace(c, '')
     return nameFormat
-
 
 def getShows(show_id, page=0):
     if show_id == 'All':
@@ -83,24 +91,28 @@ def getShows(show_id, page=0):
             print('Error: ', e)
 
 def getEpisode(episode_id):
-    print('El episode: ', episode_id)
-
-def getShowTime(show_id):
-    print('El tiempo de: ', show_id)
+    episode = episode_id[0]
+    urlApi = urlBase.format(method='episode', token=access_token) + '&episode_id={}'.format(episode)
+    try:
+        r = requests.get(urlApi)
+        json_data = json.loads(r.content)
+        if 'episode' in json_data:
+            print(json_data['episode'])
+        else:
+            print('Episode {} no encontrado'.format(episode))
+    except Exception as e:
+        print(e)
 
 parser = argparse.ArgumentParser(description='Obtener datos de tu cuenta de TvTime')
 parser.add_argument('-p', nargs=1, metavar='path', default='.', help='Carpeta donde almacenar el log')
 parser.add_argument('-s', nargs=1, metavar='idShow', default='All', help='Guarda la(s) serie(s) y su progreso (último visto, ultimo emitido)')
-parser.add_argument('-t', nargs='+', metavar='idShow', help='Tiempo que has visto una serie')
 parser.add_argument('-e', nargs='+', metavar='idEpisode', help='Retorna datos de un episodeo')
 
 args = parser.parse_args()
 path = args.p
+access_token = getToken()
 if args.e:
     getEpisode(args.e)
-    exit()
-if args.t:
-    getShowTime(args.t)
     exit()
 
 getShows(args.s)
