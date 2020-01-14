@@ -5,7 +5,7 @@ import json
 import argparse
 
 year = str(datetime.now().year)
-week = str(datetime.now().sfrtime('%V'))
+week = str(datetime.now().strftime('%V'))
 apikey = "ebb288a9fba45278c0b326b7766f8911"
 user = "edgarkmarita"
 method = {
@@ -61,6 +61,6 @@ parser.add_argument('-p', '--path', action='store', default=False, help='Directo
 
 args = parser.parse_args()
 if not args.path:
-    parse.print_help()
+    parser.print_help()
 else:
     topTen(args.path)

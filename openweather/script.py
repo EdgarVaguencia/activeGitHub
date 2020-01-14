@@ -54,6 +54,6 @@ parser.add_argument('-p', '--path', action='store', default=False, help='Carpeta
 
 args = parser.parse_args()
 if not args.path:
-    parse.print_help()
+    parser.print_help()
 else:
     current(args.path)
