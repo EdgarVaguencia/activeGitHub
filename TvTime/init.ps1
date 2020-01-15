@@ -7,5 +7,5 @@ Set-Location -Path $CurrentFolder
 python script.py
 
 # Git
-git add "series"
+git add "./series"
 git commit -m 'Buenos minutos invertidos :tv:'
