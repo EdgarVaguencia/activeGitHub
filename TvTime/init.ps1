@@ -4,7 +4,7 @@ $CurrentFolder = $DocDir + '\activeGitHub\TvTime'
 Set-Location -Path $CurrentFolder
 
 # Api
-python script.py --path "$Year/$Month"
+python script.py
 
 # Git
 git add "series"
