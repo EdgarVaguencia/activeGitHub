@@ -37,19 +37,22 @@ def getShows(show_id, page=0):
                 for s in shows:
                     showName = formatName(s['name'])
                     file = u'{dir}/{name}.md'.format(dir=dir_path, name=showName)
+                    try:
+                        log_file = '# {name} ({number})\n\n'.format(name=showName, number=s['id'])
+                        log_file += '<img src="{}" />\n\n'.format(s['all_images']['poster']['0'])
+                        log_file += '## Status\n* {}\n'.format(s['status'])
+                        if s['last_aired']:
+                            log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_aired']['season_number'], episode=s['last_aired']['number'])
 
-                    log_file = '# {name} ({number})\n\n'.format(name=showName, number=s['id'])
-                    log_file += '<img src="{}" />\n\n'.format(s['all_images']['poster']['0'])
-                    log_file += '## Status\n* {}\n'.format(s['status'])
-                    log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_aired']['season_number'], episode=s['last_aired']['number'])
+                        if s['last_seen']:
+                            log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_seen']['season_number'], episode=s['last_seen']['number'])
+                        log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=s['seen_episodes'])
 
-                    if s['last_seen']:
-                        log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_seen']['season_number'], episode=s['last_seen']['number'])
-                    log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=s['seen_episodes'])
-
-                    sb = open(file, 'w')
-                    sb.write(log_file)
-                    sb.close()
+                        sb = open(file, 'w')
+                        sb.write(log_file)
+                        sb.close()
+                    except Exception as e:
+                        print('Error ' + showName + ' data: ', e)
                 getShows(show_id, page+1)
         except Exception as e:
             print('Error: ', e)
