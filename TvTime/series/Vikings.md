@@ -6,6 +6,6 @@
 * Continuing
 ## Last Aired
 * Season: 6
-* Episode: 6
+* Episode: 9
 ## Seen Episodes
 * Total: 0

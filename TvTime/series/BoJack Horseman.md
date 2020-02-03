@@ -3,9 +3,9 @@
 <img src="https://dg31sz3gwrwan.cloudfront.net/poster/282254/1031578-0-optimized.jpg" />
 
 ## Status
-* Continuing
+* Ended
 ## Last Aired
 * Season: 6
-* Episode: 8
+* Episode: 16
 ## Seen Episodes
 * Total: 0

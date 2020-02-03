@@ -6,7 +6,7 @@
 * Continuing
 ## Last Aired
 * Season: 2
-* Episode: 8
+* Episode: 9
 ## Last Seen
 * Season: 2
 * Episode: 8

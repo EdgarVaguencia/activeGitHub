@@ -1,6 +1,6 @@
 # The Haunting of Hill House  (345246)
 
-<img src="https://dg31sz3gwrwan.cloudfront.net/poster/345246/1308247-0-optimized.jpg" />
+<img src="https://dg31sz3gwrwan.cloudfront.net/poster/345246/62048745-0-optimized.jpg" />
 
 ## Status
 * Continuing
