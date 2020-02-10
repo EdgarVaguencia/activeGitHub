@@ -6,9 +6,9 @@
 * Continuing
 ## Last Aired
 * Season: 2
-* Episode: 9
+* Episode: 8
 ## Last Seen
 * Season: 2
 * Episode: 8
 ## Seen Episodes
-* Total: 16
+* Total: 23
