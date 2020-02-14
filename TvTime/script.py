@@ -38,18 +38,48 @@ def getShows(show_id, page=0):
                     showName = formatName(s['name'])
                     file = u'{dir}/{name}.md'.format(dir=dir_path, name=showName)
                     try:
-                        log_file = '# {name} ({number})\n\n'.format(name=showName, number=s['id'])
-                        log_file += '<img src="{}" />\n\n'.format(s['all_images']['poster']['0'])
-                        log_file += '## Status\n* {}\n'.format(s['status'])
-                        if s['last_aired']:
-                            log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_aired']['season_number'], episode=s['last_aired']['number'])
+                        if not os.path.isfile(file):
+                            log_file = '# {name} ({number})\n\n'.format(name=showName, number=s['id'])
+                            log_file += '<img src="{}" />\n\n'.format(s['all_images']['poster']['0'])
+                            log_file += '## Status\n* {}\n'.format(s['status'])
+                            if s['last_aired']:
+                                log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_aired']['season_number'], episode=s['last_aired']['number'])
 
-                        if s['last_seen']:
-                            log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_seen']['season_number'], episode=s['last_seen']['number'])
-                        log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=s['seen_episodes'])
+                            if s['last_seen']:
+                                log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_seen']['season_number'], episode=s['last_seen']['number'])
+                            log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=s['seen_episodes'])
 
-                        sb = open(file, 'w')
-                        sb.write(log_file)
+                            sb = open(file, 'w')
+                            sb.write(log_file)
+                        else:
+                            with open(file, 'r') as f:
+                                body = f.readlines()
+
+                            # Update Status
+                            posStatus = [i for i,x in enumerate(body) if x == '## Status\n']
+                            body[posStatus[0] + 1] = '* {}\n'.format(s['status'])
+                            # Update LastAired
+                            if s['last_aired']:
+                                posLastAired = [i for i,x in enumerate(body) if x == '## Last Aired\n']
+                                if len(posLastAired) > 0:
+                                    body[posLastAired[0] + 1] = '* Season: {sesson}\n'.format(sesson=s['last_aired']['season_number'])
+                                    body[posLastAired[0] + 2] = '* Episode: {episode}\n'.format(episode=s['last_aired']['number'])
+                                else:
+                                    body.insert(posStatus[0] + 2, '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_aired']['season_number'], episode=s['last_aired']['number']))
+                            # Update LastSeen
+                            if s['last_seen']:
+                                posLastSeen = [i for i,x in enumerate(body) if x == '## Last Seen\n']
+                                if len(posLastSeen) > 0:
+                                    body[posLastSeen[0] + 1] = '* Season: {sesson}\n'.format(sesson=s['last_seen']['season_number'])
+                                    body[posLastSeen[0] + 2] = '* Episode: {episode}\n'.format(episode=s['last_seen']['number'])
+                                else:
+                                    body.insert(posLastAired[0] + 3, '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=s['last_seen']['season_number'], episode=s['last_seen']['number']))
+                            # Update Seen
+                            posSeen = [i for i,x in enumerate(body) if x == '## Seen Episodes\n']
+                            body[posSeen[0] + 1] = '* Total: {total}\n'.format(total=s['seen_episodes'])
+
+                            sb = open(file, 'w')
+                            sb.writelines(body)
                         sb.close()
                     except Exception as e:
                         print('Error ' + showName + ' data: ', e)
@@ -68,27 +98,41 @@ def getShows(show_id, page=0):
                     os.mkdir(dir_path)
 
                 show = json_data['show']
-                print(show)
 
                 showName = formatName(show['name'])
                 file = u'{dir}/{name}.md'.format(dir=dir_path, name=showName)
 
-                sb = open(file, 'w')
-                log_file = '# {name} ({number})\n\n'.format(name=showName, number=show['id'])
-                log_file += '<img src="{}" width="250" />\n\n'.format(show['all_images']['poster']['0'])
-                log_file += '## Status\n* {}\n'.format(show['status'])
-                log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=show['last_aired']['season_number'], episode=show['last_aired']['number'])
+                if not os.path.isfile(file):
+                    log_file = '# {name} ({number})\n\n'.format(name=showName, number=show['id'])
+                    log_file += u'## Overview\n{txt}\n'.format(txt=show['overview'])
+                    log_file += '<img src="{}" width="250" />\n\n'.format(show['all_images']['poster']['0'])
+                    log_file += '## Status\n* {}\n'.format(show['status'])
+                    log_file += '## Last Aired\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=show['last_aired']['season_number'], episode=show['last_aired']['number'])
 
-                if show['last_seen']:
-                    log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=show['last_seen']['season_number'], episode=show['last_seen']['number'])
-                log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=show['seen_episodes'])
+                    if show['last_seen']:
+                        log_file += '## Last Seen\n* Season: {sesson}\n* Episode: {episode}\n'.format(sesson=show['last_seen']['season_number'], episode=show['last_seen']['number'])
+                    log_file += '## Seen Episodes\n* Total: {total}\n'.format(total=show['seen_episodes'])
+                    log_file += '## Episodes\n'
+                    for e in show['episodes']:
+                        log_file += u'1. {name} Season: {season} Episode: {episode}\n'.format(name=e['name'], season=e['season_number'], episode=e['number'])
 
-                log_file += u'## Overview\n{txt}\n'.format(txt=show['overview'])
-                log_file += '## Episodes\n'
-                for e in show['episodes']:
-                    log_file += u'1. {name} Season: {season} Episode: {episode}\n'.format(name=e['name'], season=e['season_number'], episode=e['number'])
+                    sb = open(file, 'w')
+                    sb.write(log_file)
+                else:
+                    with open(file, 'r') as f:
+                        body = f.readlines()
 
-                sb.write(log_file)
+                    titleOverview = '## Overview\n'
+                    if titleOverview in body:
+                        position = [i for i,x in enumerate(body) if x == titleOverview]
+                        body[position[0] + 1] = show['overview']
+                    else:
+                        body.insert(2, titleOverview)
+                        body.insert(3, show['overview'] + '\n')
+
+                    sb = open(file, 'w')
+                    sb.writelines(body)
+
                 sb.close()
         except Exception as e:
             print('Error: ', e)
