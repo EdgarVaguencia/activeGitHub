@@ -97,7 +97,8 @@ def getShows(show_id, page=0):
                         position = [i for i,x in enumerate(body) if x == titleOverview]
                         body[position[0] + 1] = show['overview']
                     else:
-                        body = body + ['\n', titleOverview, show['overview']]
+                        body.insert(2, titleOverview)
+                        body.insert(3, show['overview'] + '\n')
                     sb.writelines(body)
 
                 sb.close()
