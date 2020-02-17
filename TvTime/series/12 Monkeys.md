@@ -9,6 +9,6 @@
 * Episode: 11
 ## Last Seen
 * Season: 1
-* Episode: 1
+* Episode: 2
 ## Seen Episodes
-* Total: 1
+* Total: 2

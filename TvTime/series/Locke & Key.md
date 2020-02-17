@@ -7,5 +7,8 @@
 ## Last Aired
 * Season: 1
 * Episode: 10
+## Last Seen
+* Season: 1
+* Episode: 2
 ## Seen Episodes
-* Total: 0
+* Total: 2
