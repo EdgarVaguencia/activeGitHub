@@ -5,8 +5,8 @@
 ## Status
 * Continuing
 ## Last Aired
-* Season: 1
-* Episode: 10
+* Season: 2
+* Episode: 8
 ## Last Seen
 * Season: 1
 * Episode: 10
