@@ -6,9 +6,9 @@
 * Ended
 ## Last Aired
 * Season: 6
-* Episode: 85
+* Episode: 21
 ## Last Seen
 * Season: 6
-* Episode: 85
+* Episode: 21
 ## Seen Episodes
 * Total: 153

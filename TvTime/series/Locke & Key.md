@@ -9,6 +9,6 @@
 * Episode: 10
 ## Last Seen
 * Season: 1
-* Episode: 2
+* Episode: 8
 ## Seen Episodes
-* Total: 2
+* Total: 8
