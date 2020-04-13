@@ -5,10 +5,10 @@
 ## Status
 * Continuing
 ## Last Aired
-* Season: 2
+* Season: 4
 * Episode: 8
 ## Last Seen
-* Season: 2
+* Season: 3
 * Episode: 8
 ## Seen Episodes
 * Total: 23
