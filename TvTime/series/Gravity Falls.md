@@ -6,7 +6,7 @@
 * Ended
 ## Last Aired
 * Season: 2
-* Episode: 21
+* Episode: 20
 ## Last Seen
 * Season: 1
 * Episode: 20
