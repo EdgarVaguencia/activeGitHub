@@ -6,7 +6,7 @@
 * Continuing
 ## Last Aired
 * Season: 4
-* Episode: 6
+* Episode: 7
 ## Last Seen
 * Season: 4
 * Episode: 5
