@@ -5,7 +5,7 @@
 ## Status
 * Ended
 ## Last Aired
-* Season: 3
+* Season: 4
 * Episode: 26
 ## Seen Episodes
 * Total: 0

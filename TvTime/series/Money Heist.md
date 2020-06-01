@@ -8,7 +8,7 @@
 * Season: 4
 * Episode: 8
 ## Last Seen
-* Season: 3
-* Episode: 8
+* Season: 4
+* Episode: 1
 ## Seen Episodes
-* Total: 23
+* Total: 24

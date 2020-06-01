@@ -6,7 +6,7 @@
 * Ended
 ## Last Aired
 * Season: 3
-* Episode: 18
+* Episode: 3
 ## Last Seen
 * Season: 3
 * Episode: 41
