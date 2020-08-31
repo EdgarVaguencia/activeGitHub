@@ -3,7 +3,7 @@
 <img src="https://dg31sz3gwrwan.cloudfront.net/poster/332331/1274419-0-optimized.jpg" />
 
 ## Status
-* Continuing
+* Ended
 ## Last Aired
 * Season: 2
 * Episode: 8
