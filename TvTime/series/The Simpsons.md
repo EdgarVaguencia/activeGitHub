@@ -5,8 +5,8 @@
 ## Status
 * Continuing
 ## Last Aired
-* Season: 31
-* Episode: 22
+* Season: 32
+* Episode: 1
 ## Last Seen
 * Season: 15
 * Episode: 22
