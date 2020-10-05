@@ -5,7 +5,7 @@
 ## Status
 * Continuing
 ## Last Aired
-* Season: 23
-* Episode: 10
+* Season: 24
+* Episode: 1
 ## Seen Episodes
 * Total: 0
