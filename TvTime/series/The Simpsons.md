@@ -6,7 +6,7 @@
 * Continuing
 ## Last Aired
 * Season: 32
-* Episode: 6
+* Episode: 7
 ## Last Seen
 * Season: 15
 * Episode: 22
