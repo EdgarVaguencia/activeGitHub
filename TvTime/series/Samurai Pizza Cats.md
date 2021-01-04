@@ -6,6 +6,6 @@
 * Ended
 ## Last Aired
 * Season: 1
-* Episode: 52
+* Episode: 55
 ## Seen Episodes
 * Total: 0

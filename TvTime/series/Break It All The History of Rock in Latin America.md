@@ -9,6 +9,6 @@
 * Episode: 6
 ## Last Seen
 * Season: 1
-* Episode: 1
+* Episode: 6
 ## Seen Episodes
-* Total: 1
+* Total: 6

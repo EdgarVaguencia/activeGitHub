@@ -7,5 +7,8 @@
 ## Last Aired
 * Season: 4
 * Episode: 43
+## Last Seen
+* Season: 1
+* Episode: 21
 ## Seen Episodes
-* Total: 0
+* Total: 21
