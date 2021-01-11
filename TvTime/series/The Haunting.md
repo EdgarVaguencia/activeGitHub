@@ -3,12 +3,12 @@
 <img src="https://dg31sz3gwrwan.cloudfront.net/poster/345246/62048745-0-optimized.jpg" />
 
 ## Status
-* Ended
+* Continuing
 ## Last Aired
 * Season: 2
 * Episode: 9
 ## Last Seen
 * Season: 2
-* Episode: 3
+* Episode: 9
 ## Seen Episodes
-* Total: 13
+* Total: 19

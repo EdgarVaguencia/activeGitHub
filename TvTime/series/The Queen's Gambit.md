@@ -9,6 +9,6 @@
 * Episode: 7
 ## Last Seen
 * Season: 1
-* Episode: 1
+* Episode: 7
 ## Seen Episodes
-* Total: 1
+* Total: 7
