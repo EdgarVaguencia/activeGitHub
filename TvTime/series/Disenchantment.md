@@ -5,7 +5,7 @@
 ## Status
 * Continuing
 ## Last Aired
-* Season: 1
-* Episode: 20
+* Season: 2
+* Episode: 10
 ## Seen Episodes
 * Total: 0
