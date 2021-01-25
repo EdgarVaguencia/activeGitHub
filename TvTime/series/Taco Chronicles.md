@@ -11,4 +11,4 @@
 * Season: 2
 * Episode: 7
 ## Seen Episodes
-* Total: 8
+* Total: 13

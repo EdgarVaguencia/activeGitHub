@@ -8,7 +8,7 @@
 * Season: 3
 * Episode: 10
 ## Last Seen
-* Season: 1
-* Episode: 6
+* Season: 3
+* Episode: 10
 ## Seen Episodes
-* Total: 6
+* Total: 30

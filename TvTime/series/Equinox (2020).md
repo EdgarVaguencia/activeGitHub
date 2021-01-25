@@ -3,7 +3,7 @@
 <img src="https://dg31sz3gwrwan.cloudfront.net/poster/383152/62405492-0-optimized.jpg" />
 
 ## Status
-* Ended
+* Continuing
 ## Last Aired
 * Season: 1
 * Episode: 6
