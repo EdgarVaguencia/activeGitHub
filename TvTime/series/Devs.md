@@ -7,5 +7,8 @@
 ## Last Aired
 * Season: 1
 * Episode: 8
+## Last Seen
+* Season: 1
+* Episode: 8
 ## Seen Episodes
-* Total: 0
+* Total: 8
