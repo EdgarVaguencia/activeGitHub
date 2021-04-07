@@ -7,15 +7,25 @@ import argparse
 year = str(datetime.now().year)
 month = datetime.now().strftime('%m')
 day = datetime.now().strftime('%d')
-apikey = "a5492fc4c67ed8e56a84296fa3456ad9"
 units = "metric"
 lang = "es"
 ciudad = "Celaya,mx"
-weatherApi = "http://api.openweathermap.org/data/2.5/weather?q={ciudad}&units={units}&lang={lang}&APPID={api}".format(ciudad=ciudad, units=units, lang=lang, api=apikey)
+urlBase = "http://api.openweathermap.org/data/2.5/weather?q={ciudad}&units={units}&lang={lang}&APPID={api}"
+access_token = ""
+
+def getToken():
+    token = access_token
+    if token == '':
+        f = open('../access.json', 'r')
+        data = json.loads(f.read())
+        if 'openWeather' in data:
+            token = data['openWeather']
+    return token
 
 def current(path):
     try:
-        r = requests.get(weatherApi)
+        urlApi = urlBase.format(ciudad=ciudad, units=units, lang=lang, api=access_token)
+        r = requests.get(urlApi)
         json_data = json.loads(r.content)
         weather = json_data["weather"][0]["main"]
         weather_description = json_data["weather"][0]["description"]
@@ -28,7 +38,6 @@ def current(path):
         file = '{base}/{day}.md'.format(base=path, day=day)
 
         log_file = u'# Clima en {ciudad} en el dia {day}\n\n'.format(ciudad=ciudad, day=day)
-
 
         if not os.path.isfile(file):
             sb = open(file, 'w')
@@ -53,6 +62,7 @@ parser = argparse.ArgumentParser(description='Obtenemos el estado actual de una 
 parser.add_argument('-p', '--path', action='store', default=False, help='Carpeta donde almacena el log del dia')
 
 args = parser.parse_args()
+access_token = getToken()
 if not args.path:
     parser.print_help()
 else:

@@ -53,9 +53,8 @@ def summaries(path):
             for e in json_data["data"][0]["editors"]:
                 log_file += u'1. {editor} un total de {tiempo} ({porciento}%)\n'.format(editor=e["name"], tiempo=e["digital"], porciento=e["percent"]).encode('ascii', 'ignore').decode('ascii')
 
-        # sb = open(file, 'w')
-        # sb.write(log_file)
-        print(json_data)
+        sb = open(file, 'w')
+        sb.write(log_file)
     except Exception as e:
         print("Error: ",e)
 
