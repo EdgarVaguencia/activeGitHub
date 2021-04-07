@@ -6,6 +6,6 @@
 * Continuing
 ## Last Aired
 * Season: 24
-* Episode: 1
+* Episode: 2
 ## Seen Episodes
 * Total: 0
