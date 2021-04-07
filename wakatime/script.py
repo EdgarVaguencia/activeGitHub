@@ -8,11 +8,21 @@ import argparse
 year = str(datetime.now().year)
 month = datetime.now().strftime('%m')
 day = datetime.now().strftime('%d')
-apiKey = "14c4dc54-572f-4e6b-9b85-b0d9aa06be7d"
-wakaApi = "https://wakatime.com/api/v1/users/current/summaries?api_key={api}&start={year}-{month}-{day}&end={year}-{month}-{day}".format(year=year, month=month, day=day, api=apiKey)
+urlBase = "https://wakatime.com/api/v1/users/current/summaries?api_key={token}&start={year}-{month}-{day}&end={year}-{month}-{day}"
+access_token = ''
+
+def getToken():
+    token = access_token
+    if token == '':
+        f = open('../access.json', 'r')
+        data = json.loads(f.read())
+        if 'wakaTime' in data:
+            token = data['wakaTime']
+    return token
 
 def summaries(path):
     try:
+        wakaApi = urlBase.format(token=access_token,year=year, month=month, day=day)
         r = requests.get(wakaApi)
         json_data = json.loads(r.content)
         horas = json_data["data"][0]["grand_total"]["hours"]
@@ -43,8 +53,9 @@ def summaries(path):
             for e in json_data["data"][0]["editors"]:
                 log_file += u'1. {editor} un total de {tiempo} ({porciento}%)\n'.format(editor=e["name"], tiempo=e["digital"], porciento=e["percent"]).encode('ascii', 'ignore').decode('ascii')
 
-        sb = open(file, 'w')
-        sb.write(log_file)
+        # sb = open(file, 'w')
+        # sb.write(log_file)
+        print(json_data)
     except Exception as e:
         print("Error: ",e)
 
@@ -52,6 +63,7 @@ parser = argparse.ArgumentParser(description='Se obtiene la informacion del siti
 parser.add_argument('-p', '--path', action='store', default=False, help='Carpeta donde almacena el log del dia.')
 
 args = parser.parse_args()
+access_token = getToken()
 
 if not args.path:
     parser.print_help()
