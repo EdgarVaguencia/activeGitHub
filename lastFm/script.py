@@ -6,17 +6,27 @@ import argparse
 
 year = str(datetime.now().year)
 week = str(datetime.now().strftime('%V'))
-apikey = "ebb288a9fba45278c0b326b7766f8911"
 user = "edgarkmarita"
 method = {
     'track': '&method=user.gettoptracks&period=7day&limit=10',
     'artist': '&method=user.gettopartists&period=7day&limit=10',
     'album': '&method=user.gettopalbums&period=7day&limit=10',
 }
-lastfmApi = "http://ws.audioscrobbler.com/2.0/?user={usr}&api_key={api}&format=json".format(usr=user, api=apikey)
+urlBase = "http://ws.audioscrobbler.com/2.0/?user={usr}&api_key={api}&format=json"
+access_token = ""
+
+def getToken():
+    token = access_token
+    if token == '':
+        f = open('../access.json', 'r')
+        data = json.loads(f.read())
+        if 'lastFm' in data:
+            token = data['lastFm']
+    return token
 
 def topTen(path):
     try:
+        lastfmApi = urlBase.format(usr=user, api=access_token)
         url = lastfmApi + method['track']
         r = requests.get(url)
         json_data = json.loads(r.content)
@@ -60,6 +70,7 @@ parser = argparse.ArgumentParser(description='Obtenemos el top ten de la music e
 parser.add_argument('-p', '--path', action='store', default=False, help='Directorio donde almacena el log del top ten music')
 
 args = parser.parse_args()
+access_token = getToken()
 if not args.path:
     parser.print_help()
 else:
