@@ -67,11 +67,14 @@ def topTen(path):
         print("Error: ",e)
 
 parser = argparse.ArgumentParser(description='Obtenemos el top ten de la music escuchada.')
-parser.add_argument('-p', '--path', action='store', default=False, help='Directorio donde almacena el log del top ten music')
+parser.add_argument('-p', '--path', metavar='path', action='store', default=False, help='Directorio donde almacena el log del top ten music')
+parser.add_argument('-t', '--token', metavar='TokenLastFm', action='store', default=False, help='Token user')
 
 args = parser.parse_args()
-access_token = getToken()
 if not args.path:
     parser.print_help()
+elif not args.token:
+    access_token = getToken()
 else:
+    access_token = args.token
     topTen(args.path)

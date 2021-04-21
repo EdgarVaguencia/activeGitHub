@@ -17,7 +17,7 @@ jobs:
 
             pip install requests
 
-            python lastFm\script.py --path "$Year"
+            python lastFm\script.py --path "$Year" -t ${{ secrets.TOKEN_LASTFM }}
 
             git add "$Year"
             git commit -m "Recomendación musical :headphones:"
