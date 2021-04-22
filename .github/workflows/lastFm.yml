@@ -26,4 +26,4 @@ jobs:
             github_token: ${{ secrets.TOKEN }}
             author_name: EdgarVaguencia
             author_email: ${{ secrets.EMAIL }}
-            message: Recomendación musical :headphones:
+            message: 'Recomendación musical :headphones:'
