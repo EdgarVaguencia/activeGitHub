@@ -1,8 +1,7 @@
 name: Coding
 on:
     schedule:
-        - cron: "59 23 * * 1-5"
-    # workflow_dispatch
+        - cron: '58 23 * * 1-5'
 jobs:
     scrobbler:
         runs-on: windows-latest

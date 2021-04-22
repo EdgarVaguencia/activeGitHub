@@ -1,8 +1,7 @@
 name: Top Ten
 on:
     schedule:
-        - cron: "0 7 * * 1"
-    # workflow_dispatch
+        - cron: '0 7 * * 0'
 jobs:
     scrobbler:
         runs-on: windows-latest
