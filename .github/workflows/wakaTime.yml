@@ -1,7 +1,7 @@
-name: Top Ten
+name: Coding
 on:
     schedule:
-        - cron: "0 7 * * 1"
+        - cron: "59 23 * * 1-5"
     # workflow_dispatch
 jobs:
     scrobbler:
@@ -11,20 +11,25 @@ jobs:
         - name: init proccess
           run: |
             $Year = Get-Date -UFormat %Y
+            $Month = Get-Date -UFormat %m
 
             if (!(Test-Path -Path $Year)) {
                 New-Item -Path $Year -ItemType Directory
             }
 
+            if (!(Test-Path -Path ${Year}\\${Month})) {
+                New-Item -Path $Year\$Month -ItemType Directory
+            }
+
             pip install requests
 
-            python lastFm\script.py --path "$Year" -t ${{ secrets.TOKEN_LASTFM }}
+            python wakatime\script.py --path "$Year" -t ${{ secrets.TOKEN_WAKATIME }}
 
-            git add "$Year"
+            git add "$Year/$Month"
         - name: Commit & Push changes
           uses: actions-js/push@master
           with:
             github_token: ${{ secrets.TOKEN }}
             author_name: EdgarVaguencia
             author_email: ${{ secrets.EMAIL }}
-            message: 'Recomendación musical :headphones:'
+            message: 'Dandole atomos :metal:'

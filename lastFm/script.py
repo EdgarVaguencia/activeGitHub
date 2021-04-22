@@ -71,10 +71,12 @@ parser.add_argument('-p', '--path', metavar='path', action='store', default=Fals
 parser.add_argument('-t', '--token', metavar='TokenLastFm', action='store', default=False, help='Token user')
 
 args = parser.parse_args()
+
 if not args.path:
     parser.print_help()
 elif not args.token:
     access_token = getToken()
+    topTen(args.path)
 else:
     access_token = args.token
     topTen(args.path)

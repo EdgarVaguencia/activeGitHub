@@ -60,11 +60,15 @@ def summaries(path):
 
 parser = argparse.ArgumentParser(description='Se obtiene la informacion del sitio WakaTime.')
 parser.add_argument('-p', '--path', action='store', default=False, help='Carpeta donde almacena el log del dia.')
+parser.add_argument('-t', '--token', metavar='TokenWakaTime', action='store', default=False, help='Token user')
 
 args = parser.parse_args()
-access_token = getToken()
 
 if not args.path:
     parser.print_help()
+elif not args.token:
+    access_token = getToken()
+    summaries(args.path)
 else:
+    access_token = args.token
     summaries(args.path)
