@@ -12,12 +12,12 @@ jobs:
             $Year = Get-Date -UFormat %Y
             $Month = Get-Date -UFormat %m
 
-            if (!(Test-Path -Path $Year)) {
-                New-Item -Path $Year -ItemType Directory
+            if (!(Test-Path -Path wakatime\$Year)) {
+                New-Item -Path wakatime\$Year -ItemType Directory
             }
 
-            if (!(Test-Path -Path ${Year}\\${Month})) {
-                New-Item -Path $Year\$Month -ItemType Directory
+            if (!(Test-Path -Path wakatime\${Year}\\${Month})) {
+                New-Item -Path wakatime\$Year\$Month -ItemType Directory
             }
 
             pip install requests
