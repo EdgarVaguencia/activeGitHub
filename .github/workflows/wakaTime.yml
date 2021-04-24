@@ -22,7 +22,7 @@ jobs:
 
             pip install requests
 
-            python wakatime\script.py --path "wakatime\$Year" -t ${{ secrets.TOKEN_WAKATIME }}
+            python wakatime\script.py --path "wakatime/$Year/$Month" -t ${{ secrets.TOKEN_WAKATIME }}
 
             git add "$Year/$Month"
         - name: Commit & Push changes
