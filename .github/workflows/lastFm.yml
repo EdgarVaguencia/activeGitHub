@@ -11,7 +11,7 @@ jobs:
           run: |
             $Year = Get-Date -UFormat %Y
 
-            if (!(Test-Path -Path lastFm\$Year)) {
+            if (!(Test-Path -Path lastFm\\$Year)) {
                 New-Item -Path $Year -ItemType Directory
             }
 

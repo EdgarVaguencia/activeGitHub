@@ -12,11 +12,11 @@ jobs:
             $Year = Get-Date -UFormat %Y
             $Month = Get-Date -UFormat %m
 
-            if (!(Test-Path -Path wakatime\$Year)) {
+            if (!(Test-Path -Path wakatime\\$Year)) {
                 New-Item -Path wakatime\$Year -ItemType Directory
             }
 
-            if (!(Test-Path -Path wakatime\${Year}\\${Month})) {
+            if (!(Test-Path -Path wakatime\\${Year}\\${Month})) {
                 New-Item -Path wakatime\$Year\$Month -ItemType Directory
             }
 
