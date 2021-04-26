@@ -24,7 +24,7 @@ jobs:
 
             python wakatime\script.py --path "wakatime/$Year/$Month" -t ${{ secrets.TOKEN_WAKATIME }}
 
-            git add "$Year/$Month"
+            git add "wakatime/$Year/$Month"
         - name: Commit & Push changes
           uses: actions-js/push@master
           with:
