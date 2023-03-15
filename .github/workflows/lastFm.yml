@@ -12,7 +12,7 @@ jobs:
             $Year = Get-Date -UFormat %Y
 
             if (!(Test-Path -Path lastFm\\$Year)) {
-                New-Item -Path $Year -ItemType Directory
+                New-Item -Path lastFm\$Year -ItemType Directory
             }
 
             pip install requests
